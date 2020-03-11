@@ -35,7 +35,15 @@ class SimpleSwitch {
     constructor(log, config) {
         this.log = log;
         this.config = config;
+
+        /*
+            Varijable koje su dane za svaki light unutar CONFIG-a
+            url: mjesto na koje šaljemo POST request
+            id: id svijetla u ovom slucaju tako da ako ih je vise spojeno
+            na arduino mozemo odrediti koju hocemo upaliti
+        */
         this.url = config['url'];
+        this.id = config['id'];
 
         this.switchService = new Service.Switch(config['name']);
         this.isOn = false; // default value so we don't get undefined
@@ -100,7 +108,8 @@ class SimpleSwitch {
             url: this.url,
             method: 'POST',
             json: {
-                "light": `${this.isOn}`
+                "light": `${this.isOn}`,
+                "id": `${this.id}`
             }
         }, (error, response) => {
 

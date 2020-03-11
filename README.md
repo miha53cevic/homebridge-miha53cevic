@@ -7,13 +7,15 @@
 ```
 
 ## Config
-Add this to your homebridge config (the name can be changed but the accessory name must be SimpleSwitch)
+Add this to your homebridge config (the name can be changed but the accessory name must be SimpleSwitch)  
+If using multiple lights you can give each an id (should be a number)
 ```json
 
     "accessories": [
         {
             "accessory": "SimpleSwitch",
             "name": "Light",
+            "id": "1",
             "url": "http://192.168.1.2"
         }
     ],
@@ -21,7 +23,8 @@ Add this to your homebridge config (the name can be changed but the accessory na
 ```
 
 ## API
-The url paramater sends a POST request with json that contains an object "Light":"state:boolean" 
+The url paramater sends a POST request with json that contains an object "Light":"state:boolean"  
+The id paramater is sent with the POST request json 
 
 ## Homebridge services
 - Service "Accessory Information"
