@@ -21,4 +21,54 @@ Add this to your homebridge config (the name can be changed but the accessory na
 ```
 
 ## API
-Currently none
+The url paramater sends a POST request with json that contains an object "Light":"state:boolean" 
+
+## Homebridge services
+- Service "Accessory Information"
+- Service "Air Purifier"
+- Service "Air Quality Sensor"
+- Service "Battery Service"
+- Service "Camera RTP Stream Management"
+- Service "Carbon Dioxide Sensor"
+- Service "Carbon Monoxide Sensor"
+- Service "Contact Sensor"
+- Service "Door"
+- Service "Doorbell"
+- Service "Fan"
+- Service "Fan v2"
+- Service "Filter Maintenance"
+- Service "Faucet"
+- Service "Garage Door Opener"
+- Service "Heater Cooler"
+- Service "Humidifier Dehumidifier"
+- Service "Humidity Sensor"
+- Service "Irrigation System"
+- Service "Leak Sensor"
+- Service "Light Sensor"
+- Service "Lightbulb"
+- Service "Lock Management"
+- Service "Lock Mechanism"
+- Service "Microphone"
+- Service "Motion Sensor"
+- Service "Occupancy Sensor"
+- Service "Outlet"
+- Service "Security System"
+- Service "Service Label"
+- Service "Slat"
+- Service "Smoke Sensor"
+- Service "Speaker"
+- Service "Stateless Programmable Switch"
+- Service "Switch"
+- Service "Temperature Sensor"
+- Service "Thermostat"
+- Service "Valve"
+- Service "Window"
+- Service "Window Covering"
+- Service "Camera Operating Mode"
+- Service "Camera Event Recording Management"
+- Service "Wi-Fi Router"
+- Service "Wi-Fi Satellite"
+
+To find out more about these services go here: https://github.com/KhaosT/HAP-NodeJS/blob/master/src/lib/gen/HomeKit.ts  
+  
+CTRL + F the service you want more info about
