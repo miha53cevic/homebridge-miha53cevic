@@ -103,9 +103,13 @@ class SimpleSwitch {
                 "light": `${this.isOn}`
             }
         }, (error, response) => {
-            if (response !== undefined && response.statusCode != 200) {
-                this.log(`Error: response from server: `, response);
+
+            if (response !== undefined) {
+                if (response.statusCode != 200) {
+                    this.log(`Error: response from server: `, response);
+                }
             }
+
             if (error) {
                 this.log(`An error has occured: `, error);
             }
@@ -123,7 +127,7 @@ class SimpleSwitch {
         koju vracamo
     */
     getSwitchOnCharacteristic(callback) {
-        
+
         this.log(`calling getSwitchOnCharacteristic`, this.isOn);
 
         // vrati spremljenu vrijednost
