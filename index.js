@@ -103,7 +103,7 @@ class SimpleSwitch {
                 "light": `${this.isOn}`
             }
         }, (error, response) => {
-            if (response.statusCode != 200) {
+            if (response !== undefined && response.statusCode != 200) {
                 this.log(`Error: response from server: `, response);
             }
             if (error) {
