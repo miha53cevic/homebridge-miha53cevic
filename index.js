@@ -21,10 +21,10 @@ module.exports = function (homebridge) {
         Drugi parametar: MORA biti accessory name u config-u!
         Treci parametar: klasa koja mora imati constructor, getServices, setSwitchOnCharacteristic, getSwitchOnCharacteristic
     */
-    homebridge.registerAccessory('temp-plugin', 'MyGreatTemp', mytemp);
+    homebridge.registerAccessory('miha53cevic-plugin', 'SimpleSwitch', SimpleSwitch);
 };
 
-class mytemp {
+class SimpleSwitch {
     /*
         Constructor nase klase
 
@@ -93,8 +93,11 @@ class mytemp {
                 "light": `${this.isOn}`
             }
         }, (error, response) => {
+            if (response != 200) {
+                this.log(`Given response from server: `, response);
+            }
             if (error) {
-                this.log(`Cannot reach light server!`, error);
+                this.log(`An error has occured: `, error);
             }
         });
 
