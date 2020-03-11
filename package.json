@@ -6,6 +6,11 @@
   "keywords": [
     "homebridge-plugin"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/miha53cevic/homebridge-miha53cevic.git"
+  },
+  "homepage": "https://github.com/miha53cevic/homebridge-miha53cevic",
   "engines": {
     "node": ">=0.12.0",
     "homebridge": ">=0.2.0"
