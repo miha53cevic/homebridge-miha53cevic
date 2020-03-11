@@ -85,6 +85,16 @@ class SimpleSwitch {
         /*
             Post request šalje dodatno na neki server json varijablu light koja je boolean
             - ako se koristi express da se prima ta varijabla mora se staviti post a ne get
+            jer se onda ocekuju post requesti
+
+            Prvo se da url servera koji je stavljen u CONFIG zatim je sljedece metoda kojom se
+            šalje u ovom slucaju POST.
+            Nakon toga je kaj se šalje, u ovom slučaju je json dokument kojeg možemo stvoriti preko
+            constructora samo sa {}
+            
+            Nakon toga drugi parametar request funkcije je callback funkcije koja se ove kad se posalje.
+            Ili se vraca error i ispisuje u homebridge konzolu ili ako server nije poslal 200 (ok) onda
+            isto to stavi u konzolu
         */
         request({
             url: this.url,
@@ -93,15 +103,15 @@ class SimpleSwitch {
                 "light": `${this.isOn}`
             }
         }, (error, response) => {
-            if (response != 200) {
-                this.log(`Given response from server: `, response);
+            if (response.statusCode != 200) {
+                this.log(`Error: response from server: `, response);
             }
             if (error) {
                 this.log(`An error has occured: `, error);
             }
         });
 
-        // if no error send back null
+        // ako nema grešaka pošalji null
         callback(null);
     }
 
@@ -113,6 +123,7 @@ class SimpleSwitch {
         koju vracamo
     */
     getSwitchOnCharacteristic(callback) {
+        
         this.log(`calling getSwitchOnCharacteristic`, this.isOn);
 
         // vrati spremljenu vrijednost
