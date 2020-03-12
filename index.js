@@ -108,8 +108,8 @@ class SimpleSwitch {
             url: this.url,
             method: 'POST',
             json: {
-                "state": `${this.isOn}`,
-                "id": `${this.id}`
+                "state": this.isOn,
+                "id": this.id
             }
         }, (error, response) => {
 
