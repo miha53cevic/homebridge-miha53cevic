@@ -23,7 +23,7 @@ If using multiple lights you can give each an id (should be a number)
 ```
 
 ## API
-The url paramater sends a POST request with json that contains an object "Light":"state:boolean"  
+The url paramater sends a POST request with json that contains an object "state":"boolean"  
 The id paramater is sent with the POST request json 
 
 ## Homebridge services
